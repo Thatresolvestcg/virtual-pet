@@ -20,4 +20,14 @@ describe("grow up", () => {
         pet.growUp();
         expect(pet.age).toEqual(1);
     });
+    test("increases hunger by five", () => {
+        const pet = new Pet("Fido");
+        pet.growUp();
+        expect(pet.hunger).toEqual(5);
+    })
+    test("decreases fitness by three", () => {
+        const pet = new Pet("Fido")
+        pet.growUp();
+        expect(pet.fitness).toEqual(7);
+    })
 })
