@@ -13,3 +13,11 @@ describe("constructor", () => {
         expect(pet.age).toEqual(0);
     })
 });
+
+describe("grow up", () => {
+    test("increments the age by one", () => {
+        const pet = new Pet('Fido');
+        pet.growUp();
+        expect(pet.age).toEqual(1);
+    });
+})
