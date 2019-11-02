@@ -23,6 +23,9 @@ function Pet(name) {
         }
     }
     Pet.prototype.walk = function () {
+        if (!this.isAlive) {
+            throw new Error("Your pet is no longer alive.");
+        }
         if ((this.fitness + FITNESS_INCREASE) <= MAXIMUM_FITNESS) {
             this.fitness += FITNESS_INCREASE;
         } else {
@@ -31,7 +34,7 @@ function Pet(name) {
     }
     Pet.prototype.feed = function () {
         if (!this.isAlive) {
-            throw new Error("Your pet is no longer alive.")
+            throw new Error("Your pet is no longer alive.");
         }
         if ((this.hunger - HUNGER_DECREASE) >= MINIMUM_HUNGER) {
             this.hunger -= HUNGER_DECREASE;
@@ -40,6 +43,9 @@ function Pet(name) {
         }
     }
     Pet.prototype.checkUp = function () {
+        if (!this.isAlive) {
+            throw new Error("Your pet is no longer alive.")
+        }
         if ((this.fitness >= 4) && (this.hunger <= 4)) {
             return "I feel great!";
         } if ((this.fitness <= 3) && (this.hunger >= 5)) {
