@@ -1,4 +1,4 @@
-const MAIMUM_FITNESS = 10;
+const MAXIMUM_FITNESS = 10;
 const MINIMUM_HUNGER = 0;
 
 function Pet(name) {
@@ -12,7 +12,7 @@ function Pet(name) {
         this.fitness -= 3;
     }
     Pet.prototype.walk = function () {
-        if ((this.fitness + 4) <= MAIMUM_FITNESS) {
+        if ((this.fitness + 4) <= MAXIMUM_FITNESS) {
             this.fitness += 4;
         } else {
             this.fitness = 10;
@@ -24,6 +24,18 @@ function Pet(name) {
         } else {
             this.hunger = 0;
         }
+    }
+    Pet.prototype.checkUp = function () {
+        if ((this.fitness >= 4) && (this.hunger <= 4)) {
+            return "I feel great!";
+        } if ((this.fitness <= 3) && (this.hunger >= 5)) {
+            return "I don't feel so good!";
+        } if ((this.hunger >= 5)) {
+            return "I'm hungry";
+        } if ((this.fitness <= 3)) {
+            return "I need a walk";
+        }
+
     }
 }
 

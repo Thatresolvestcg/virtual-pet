@@ -59,7 +59,33 @@ describe("feed", () => {
         pet.hunger = 1;
         pet.feed();
         expect(pet.hunger).toEqual(0);
-    })
+    });
+});
+describe("checkup", () => {
+    test("Pet in good condition should have a positive checkup result", () => {
+        const pet = new Pet("Mickey");
+        pet.hunger = 2;
+        pet.fitness = 8;
+        expect(pet.checkUp()).toEqual("I feel great!")
+    });
+    test("Pet in bad condition should have a negative checkup result", () => {
+        const pet = new Pet("Mickey");
+        pet.hunger = 9;
+        pet.fitness = 2;
+        expect(pet.checkUp()).toEqual("I don't feel so good!");
+    });
+    test("Pet with high hunger level needs to eat", () => {
+        const pet = new Pet("Mickey");
+        pet.hunger = 8;
+        pet.fitness = 10;
+        expect(pet.checkUp()).toEqual("I'm hungry");
+    });
+    test("Pet with low fitness needs to get some exercise", () => {
+        const pet = new Pet("Mickey");
+        pet.hunger = 0;
+        pet.fitness = 2;
+        expect(pet.checkUp()).toEqual("I need a walk");
+    });
 });
 
 
