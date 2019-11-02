@@ -30,6 +30,11 @@ describe("grow up", () => {
         pet.growUp();
         expect(pet.fitness).toEqual(7);
     });
+    test("throws an error if the pet is not alive", () => {
+        const pet = new Pet("Mickey");
+        pet.age = 30;
+        expect(() => pet.growUp()).toThrow("Your pet is no longer alive.")
+    });
 });
 
 describe("walk", () => {
