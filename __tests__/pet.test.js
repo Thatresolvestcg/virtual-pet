@@ -60,6 +60,11 @@ describe("feed", () => {
         pet.feed();
         expect(pet.hunger).toEqual(0);
     });
+    test("throws an error if the pet is not alive", () => {
+        const pet = new Pet("Mickey");
+        pet.age = 30;
+        expect(() => pet.feed()).toThrow("Your pet is no longer alive.")
+    })
 });
 describe("checkup", () => {
     test("Pet in good condition should have a positive checkup result", () => {
