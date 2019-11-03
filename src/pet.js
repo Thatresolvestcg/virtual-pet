@@ -5,6 +5,8 @@ const MAXIMUM_FITNESS = 10;
 const MINIMUM_HUNGER = 0;
 const FITNESS_INCREASE = 4;
 const HUNGER_DECREASE = 3;
+const DEAD_PET = "Your pet is no longer alive."
+
 
 function Pet(name) {
     this.name = name;
@@ -19,7 +21,7 @@ function Pet(name) {
     }
     Pet.prototype.growUp = function () {
         if (!this.isAlive) {
-            throw new Error("Your pet is no longer alive.")
+            throw new Error(DEAD_PET)
         } else {
             this.age += 1;
             this.hunger += 5;
@@ -39,7 +41,7 @@ function Pet(name) {
     }
     Pet.prototype.feed = function () {
         if (!this.isAlive) {
-            throw new Error("Your pet is no longer alive.");
+            throw new Error(DEAD_PET);
         }
         if ((this.hunger - HUNGER_DECREASE) >= MINIMUM_HUNGER) {
             this.hunger -= HUNGER_DECREASE;
@@ -49,7 +51,7 @@ function Pet(name) {
     }
     Pet.prototype.checkUp = function () {
         if (!this.isAlive) {
-            throw new Error("Your pet is no longer alive.")
+            throw new Error(DEAD_PET)
         }
         if ((this.fitness >= 4) && (this.hunger <= 4)) {
             return "I feel great!";
