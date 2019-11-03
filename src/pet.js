@@ -61,5 +61,9 @@ function Pet(name) {
             return "I need a walk";
         }
     }
+    Pet.prototype.haveBaby = function () {
+        // here we need to add having a baby, passing an argument like haveBaby("babyname")
+        // 
+    }
 }
 module.exports = Pet;

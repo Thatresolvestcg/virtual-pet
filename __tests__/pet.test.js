@@ -104,8 +104,13 @@ describe("checkup", () => {
     test("throws an error if the pet is not alive", () => {
         const pet = new Pet("Mickey");
         pet.age = 30;
-        expect(() => pet.checkUp().toThrow("Your pet is no longer alive."))
-    })
+        expect(() => pet.checkUp().toThrow("Your pet is no longer alive."));
+    });
+});
+describe("haveBaby", () => {
+    test("baby is a child of the parent pet", () => {
+        // make sure that the baby is a child of the parent pet node 
+    });
 });
 
 
