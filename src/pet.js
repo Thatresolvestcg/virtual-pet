@@ -13,6 +13,7 @@ function Pet(name) {
     this.age = INITIAL_AGE;
     this.hunger = INITIAL_HUNGER;
     this.fitness = INITIAL_FITNESS;
+    this.child = [];
     Pet.prototype = {
         get isAlive() {
             return this.age < 30 && this.hunger < 10 && this.fitness > 0;
@@ -63,9 +64,10 @@ function Pet(name) {
             return "I need a walk";
         }
     }
-    Pet.prototype.haveBaby = function () {
-        // here we need to add having a baby, passing an argument like haveBaby("babyname")
-        // 
+    Pet.prototype.haveChild = function (childName) {
+        const child = new Pet(childName);
+        child.parent = this.name;
+        this.children.push(child.name);
     }
 }
 module.exports = Pet;

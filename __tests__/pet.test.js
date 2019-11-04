@@ -107,10 +107,18 @@ describe("checkup", () => {
         expect(() => pet.checkUp().toThrow("Your pet is no longer alive."));
     });
 });
-describe("haveBaby", () => {
-    test("baby is a child of the parent pet", () => {
-        // make sure that the baby is a child of the parent pet node 
+describe("haveChild", () => {
+    test("parent pet creates child pet in an array", () => {
+        const pet = new Pet("Mickey");
+        pet.haveChild("Mickey Junior");
+        // expecting to be an instance of an array
     });
+    test("health check for the child", () => {
+        // put some health checks for the child
+    })
+    test("child can use the functions", () => {
+        // assert that child can use the functions, feed, growUp, walk etc
+    })
 });
 
 
